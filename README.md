@@ -1,4 +1,6 @@
-#Ardent
+#DEPRECATED USE http://github.com/esensi/model
+
+##Ardent
 
 Self-validating smart models for Laravel Framework 4's Eloquent O/RM.
 
