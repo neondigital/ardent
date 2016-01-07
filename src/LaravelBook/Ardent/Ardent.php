@@ -832,6 +832,11 @@ abstract class Ardent extends Model {
                 }
 
 				$rule = 'unique:' . implode(',', $uniqueRules);
+
+                if ($this->softDelete) {
+                    $rule .= ',deleted_at,NULL';
+                }
+				
 			  } // end if strpos unique
 
 			} // end foreach ruleset
