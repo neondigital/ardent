@@ -820,12 +820,16 @@ abstract class Ardent extends Model {
 				  $uniqueRules[2] = $params[1];
 
 				if (isset($this->primaryKey)) {
-				  $uniqueRules[3] = $this->{$this->primaryKey};
-				  $uniqueRules[4] = $this->primaryKey;
-				}
-				else {
-				  $uniqueRules[3] = $this->id;
-				}
+                    if (isset($this->{$this->primaryKey})) {
+                        $uniqueRules[3] = $this->{$this->primaryKey};
+                        // If optional where rules are passed, append them otherwise use primary key
+                        $uniqueRules[4] = isset($params[3])? $params[3] : $this->primaryKey;
+                    }
+                } else {
+                    if (isset($this->id)) {
+                        $uniqueRules[3] = $this->id;
+                    }
+                }
 
 				$rule = 'unique:' . implode(',', $uniqueRules);
 			  } // end if strpos unique

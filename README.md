@@ -1,4 +1,4 @@
-#DEPRECATED USE http://github.com/esensi/model
+#BUG FIX - For BONE project, not for re-use
 
 ##Ardent
 
